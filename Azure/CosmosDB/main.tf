@@ -1,6 +1,5 @@
 # Configure the Microsoft Azure Provider
 variable "subscription_id" {}
-
 variable "client_id" {}
 variable "client_secret" {}
 
