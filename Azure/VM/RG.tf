@@ -10,4 +10,3 @@ resource "azurerm_resource_group" "terraformsandbox" {
     environment = "sandbox"
   }
 }
-
