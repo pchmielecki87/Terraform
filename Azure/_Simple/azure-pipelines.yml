@@ -15,7 +15,7 @@ steps:
 - task: TerraformInstaller@0
   displayName: 'TF install'
   inputs:
-    terraformVersion: 'latest'
+    terraformVersion: '1.0.10' # latest
 
 - task: TerraformCLI@0
   displayName: 'TF version print'
