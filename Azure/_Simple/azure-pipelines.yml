@@ -30,13 +30,15 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
+  displayName: 'TF validate'
   inputs:
     command: 'validate'
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
-  inputs:
-    command: 'plan'
-    environmentServiceName: 'Pay-As-You-Go(63abcf25-b8df-4c76-8b31-5004c9ba37cd)'
-    allowTelemetryCollection: true
-    publishPlanResults: 'sandbox'
+inputs:
+  command: 'plan'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/_Simple'
+  allowTelemetryCollection: true
+  publishPlanResults: 'sandbox'
+
