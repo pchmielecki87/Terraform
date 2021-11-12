@@ -1,0 +1,42 @@
+---
+trigger:
+  branches:
+    include:
+    - main
+
+variables:
+  vmImage: ubuntu-latest
+  azureServiceConnection: AdoServiceConnection
+
+pool:
+  vmImage: $(vmImage)
+
+steps:
+- task: TerraformInstaller@0
+  displayName: 'TF install'
+  inputs:
+    terraformVersion: 'latest'
+
+- task: TerraformCLI@0
+  displayName: 'TF version print'
+  inputs:
+    command: 'version'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@0
+  displayName: 'TF init'
+  inputs:
+    command: 'init'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'validate'
+    allowTelemetryCollection: true
+
+- task: TerraformCLI@0
+  inputs:
+    command: 'plan'
+    environmentServiceName: 'Pay-As-You-Go(63abcf25-b8df-4c76-8b31-5004c9ba37cd)'
+    allowTelemetryCollection: true
+    publishPlanResults: 'sandbox'
