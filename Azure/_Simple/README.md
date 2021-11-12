@@ -1,0 +1,1 @@
+Based on [Microsoft example](https://docs.microsoft.com/en-us/azure/developer/terraform/create-resource-group?tabs=azure-cli).
