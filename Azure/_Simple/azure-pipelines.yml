@@ -36,9 +36,10 @@ steps:
     allowTelemetryCollection: true
 
 - task: TerraformCLI@0
-inputs:
-  command: 'plan'
-  workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\_Simple'
-  allowTelemetryCollection: true
-  publishPlanResults: 'sandbox'
+  displayName: 'TF plan'
+  inputs:
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\_Simple'
+    allowTelemetryCollection: true
+    publishPlanResults: 'sandbox'
 
