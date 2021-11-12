@@ -40,6 +40,6 @@ steps:
   inputs:
     command: 'plan'
     workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\_Simple'
-    allowTelemetryCollection: true
-    publishPlanResults: 'sandbox'
+#    allowTelemetryCollection: true
+#    publishPlanResults: 'sandbox'
 
