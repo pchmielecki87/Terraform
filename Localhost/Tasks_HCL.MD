@@ -40,12 +40,3 @@
   (c) files
     - fileexists(path/to/file.txt)
     - filebase64(path/to/file.txt)
-
-## TF AZURE
-
-(1) Testing TF code
-
-    terraform fmt -check
-    terraform validate
-
-(2) Create resources in Azure
