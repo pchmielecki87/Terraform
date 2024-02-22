@@ -41,7 +41,6 @@ resource "azurerm_mssql_database" "test" {
     retention_in_days                       = 6
   }
 
-
   tags = {
     foo = "bar"
   }
