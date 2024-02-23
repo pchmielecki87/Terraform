@@ -1,6 +1,9 @@
 # MacOS devlopement files
 .DS_Store
 
+# TF subprojects which are not working yet
+Azure/Azure-Sandbox/3-kv
+
 # Local .terraform directories
 **/.terraform/*
 
