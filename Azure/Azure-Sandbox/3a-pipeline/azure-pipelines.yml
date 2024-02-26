@@ -1,45 +1,46 @@
 ---
-trigger:
-  branches:
-    include:
-    - main
-
-variables:
-  vmImage: ubuntu-latest
-  azureServiceConnection: AdoServiceConnection
-
-pool:
-  vmImage: $(vmImage)
-
-steps:
-- task: TerraformInstaller@0
-  displayName: 'TF install'
-  inputs:
-    terraformVersion: 'latest'
-
-- task: TerraformCLI@0
-  displayName: 'TF version print'
-  inputs:
-    command: 'version'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: 'TF init'
-  inputs:
-    command: 'init'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: 'TF validate'
-  inputs:
-    command: 'validate'
-    allowTelemetryCollection: true
-
-- task: TerraformCLI@0
-  displayName: 'TF plan'
-  inputs:
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline'
-#    allowTelemetryCollection: true
-#    publishPlanResults: 'sandbox'
-
+  trigger:
+    branches:
+      include:
+      - main
+  
+  variables:
+    vmImage: ubuntu-latest
+    azureServiceConnection: AdoServiceConnection
+  
+  pool:
+    vmImage: $(vmImage)
+  
+  steps:
+  - task: TerraformInstaller@1
+    displayName: 'TF install'
+    inputs:
+      terraformVersion: 'latest'
+  
+  - task: TerraformCLI@1
+    displayName: 'TF version print'
+    inputs:
+      command: 'version'
+      allowTelemetryCollection: true
+  
+  - task: TerraformCLI@1
+    displayName: 'TF init'
+    inputs:
+      command: 'init'
+      allowTelemetryCollection: true
+  
+  - task: TerraformCLI@1
+    displayName: 'TF validate'
+    inputs:
+      command: 'validate'
+      allowTelemetryCollection: true
+  
+  - task: TerraformCLI@1
+    displayName: 'TF plan'
+    inputs:
+      command: 'plan'
+      workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline'
+  #    allowTelemetryCollection: true
+  #    publishPlanResults: 'sandbox'
+  
+  
