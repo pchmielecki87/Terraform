@@ -1,5 +1,5 @@
 variable "resource_group_name" {
-  default     = ""
+  default = ""
   # variable declared here without provided value
 }
 
