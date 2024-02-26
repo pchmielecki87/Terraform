@@ -22,7 +22,7 @@
         cd $(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline
         echo "Print PWD:"
         pwd
-  - task: TerraformInstaller@1
+  - task: TerraformInstaller@0
     displayName: 'TF install'
     inputs:
       terraformVersion: 'latest'
