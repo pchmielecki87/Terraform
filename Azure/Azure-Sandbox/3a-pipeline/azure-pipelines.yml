@@ -12,6 +12,16 @@
     vmImage: $(vmImage)
   
   steps:
+  - task: CmdLine@2
+    displayName: 'Moving to proper dir'
+    inputs:
+      script: |
+        echo "Print default workdir:"
+        echo  '$(System.DefaultWorkingDirectory)'
+        echo "Going to: $(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline"
+        cd $(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline
+        echo "Print PWD:"
+        pwd
   - task: TerraformInstaller@1
     displayName: 'TF install'
     inputs:
