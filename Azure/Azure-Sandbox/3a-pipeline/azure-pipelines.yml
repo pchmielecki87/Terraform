@@ -39,7 +39,7 @@ steps:
   displayName: 'TF plan'
   inputs:
     command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\_Simple'
+    workingDirectory: '$(System.DefaultWorkingDirectory)\Azure\Azure-Sandbox\3a-pipeline'
 #    allowTelemetryCollection: true
 #    publishPlanResults: 'sandbox'
 
