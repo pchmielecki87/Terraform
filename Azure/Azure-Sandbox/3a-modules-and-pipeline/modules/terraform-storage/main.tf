@@ -1,5 +1,3 @@
-variable "resource_group_name" {}
-
 resource "azurerm_storage_account" "sa" {
   name                     = var.storage_account_name
   resource_group_name      = var.resource_group_name
@@ -14,10 +12,6 @@ resource "azurerm_storage_account" "sa" {
 
 resource "azurerm_storage_container" "sa" {
   name                  = var.contianer_storage_account_name
-  storage_account_name  = azurerm_storage_account.sa.name
+  storage_account_name  = var.storage_account_name
   container_access_type = "private"
-}
-
-output "name" {
-  value = azurerm_storage_account.sa.name
 }
