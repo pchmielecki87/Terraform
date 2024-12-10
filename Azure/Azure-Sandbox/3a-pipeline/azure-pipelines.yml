@@ -29,8 +29,7 @@
       scriptType: bash
       scriptLocation: inlineScript
       inlineScript: |
-        az account show --subscription 8dac1cb1-7130-4137-a400-92c8b6c10bd9
-
+        az account show --subscription '63abcf25-b8df-4c76-8b31-5004c9ba37cd'
 
   - task: TerraformInstaller@0
     displayName: 'TF install'
