@@ -12,58 +12,10 @@
     vmImage: $(vmImage)
   
   steps:
-  - task: CmdLine@2
-    displayName: 'Moving to proper dir'
-    inputs:
-      script: |
-        echo "Print default workdir:"
-        echo  '$(System.DefaultWorkingDirectory)'
-        echo "Going to: $(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline"
-        cd $(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline
-        echo "Print PWD:"
-        pwd
-
-  - task: AzureCLI@2
-    inputs:
-      azureSubscription: 'AdoServiceConnection'
-      scriptType: bash
-      scriptLocation: inlineScript
-      inlineScript: |
-        az account show --subscription '63abcf25-b8df-4c76-8b31-5004c9ba37cd'
-
   - task: TerraformInstaller@0
     displayName: 'TF install'
     inputs:
       terraformVersion: 'latest'
-  
-  # - task: TerraformCLI@1
-  #   displayName: 'TF version print'
-  #   inputs:
-  #     command: 'version'
-  #     workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline'
-  #     allowTelemetryCollection: true
-  
-  # - task: TerraformCLI@1
-  #   displayName: 'TF init'
-  #   inputs:
-  #     command: 'init'
-  #     workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline'
-  #     allowTelemetryCollection: true
-  
-  # - task: TerraformCLI@1
-  #   displayName: 'TF validate'
-  #   inputs:
-  #     command: 'validate'
-  #     workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline'
-  #     allowTelemetryCollection: true
-  
-  # - task: TerraformCLI@1
-  #   displayName: 'TF plan'
-  #   inputs:
-  #     command: 'plan'
-  #     workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline'
-  # #    allowTelemetryCollection: true
-  # #    publishPlanResults: 'sandbox'
   
   - task: AzureCLI@2
     displayName: 'TF init'
@@ -74,6 +26,16 @@
       scriptLocation: inlineScript
       inlineScript: |
         terraform init
+
+  - task: AzureCLI@2
+    displayName: 'TF validate'
+    inputs:
+      azureSubscription: 'AdoServiceConnection'
+      scriptType: bash
+      workingDirectory: '$(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline'
+      scriptLocation: inlineScript
+      inlineScript: |
+        terraform validate
 
   - task: AzureCLI@2
     displayName: 'TF plan'
