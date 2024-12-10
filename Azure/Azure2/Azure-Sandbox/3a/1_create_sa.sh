@@ -1,4 +1,4 @@
-#!/bin/bash -v
+#!/bin/bash
 RESOURCE_GROUP_NAME=tfstate-techbrain
 STORAGE_ACCOUNT_NAME=tfstatetechbrain
 CONTAINER_NAME=tfstate

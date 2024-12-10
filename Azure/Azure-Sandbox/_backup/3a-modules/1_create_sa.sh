@@ -1,6 +1,6 @@
-#!/bin/bash -v
-RESOURCE_GROUP_NAME=tfstate-techbrain
-STORAGE_ACCOUNT_NAME=tfstatetechbrain
+#!/bin/bash
+RESOURCE_GROUP_NAME=tfstate-techbrain-modules
+STORAGE_ACCOUNT_NAME=tfstatetechbrainmodules
 CONTAINER_NAME=tfstate
 
 # Create resource group
