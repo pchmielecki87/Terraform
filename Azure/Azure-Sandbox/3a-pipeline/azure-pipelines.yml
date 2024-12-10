@@ -22,6 +22,15 @@
         cd $(System.DefaultWorkingDirectory)/Azure/Azure-Sandbox/3a-pipeline
         echo "Print PWD:"
         pwd
+
+  - task: AzureCLI@2
+    inputs:
+      azureSubscription: 'AdoServiceConnection'
+      scriptType: bash
+      scriptLocation: inlineScript
+      inlineScript: |
+        az account show
+
   - task: TerraformInstaller@0
     displayName: 'TF install'
     inputs:
