@@ -14,7 +14,7 @@ module "app" {
 
 module "sa" {
   source                         = "./modules/terraform-storage"
-  resource_group_name            = var.resource_group_name # module.rg.resource_group_name # module.<MODULE_NAME>.<OUTPUT_NAME>
+  resource_group_name            = var.resource_group_name
   storage_account_name           = var.storage_account_name
   contianer_storage_account_name = var.contianer_storage_account_name
   location                       = var.location
